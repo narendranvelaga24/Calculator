@@ -12,6 +12,7 @@ function divide(a, b) {
     return a / b;
 }
 
+
 let num1 = 3, num2 = 5, operator = '+';
 function operate(operator, a, b) {
     switch(operator) {
