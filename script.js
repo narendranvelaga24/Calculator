@@ -24,3 +24,18 @@ function operate(operator, a, b) {
     }
 }
 operate(operator, num1, num2);
+
+
+const display = document.getElementById('display');
+const buttons = document.querySelectorAll('.buttons button');
+
+let displayValue = '';
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const val = button.textContent;
+        if(!isNaN(val) || val === '.') {
+            displayValue += val;
+            display.textContent = displayValue;
+        }
+    });
+});
