@@ -25,6 +25,9 @@ function operate(operator, a, b) {
 }
 //operate(operator, num1, num2);
 
+function roundResult(result) {
+    return typeof result === "number" ? Math.round(result * 1000) / 1000 : result;
+}
 
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.buttons button');
@@ -54,7 +57,7 @@ buttons.forEach(button => {
             if(currentOp && firstNum ==='') {
                 secondNum = displayValue;
                 const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
-                display.textContent = result;
+                display.textContent = roundResult(result);
 
                 firstNum = result;
             } else {
@@ -70,7 +73,7 @@ buttons.forEach(button => {
 
             secondNum = displayValue;
             const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
-            display.textContent = result;
+            display.textContent = roundResult(result);
             firstNum = result;
             currentOp = null;
             resetNext = true;
