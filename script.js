@@ -64,5 +64,16 @@ buttons.forEach(button => {
             currentOp = val;
             resetNext = true;
         }
+
+        else if (val === '=') {
+            if(currentOp = null || resetNext) return;
+
+            secondNum = displayValue;
+            const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
+            display.textContent = result;
+            firstNum = result;
+            currentOp = null;
+            resetNext = true;
+        }
     });
 });
