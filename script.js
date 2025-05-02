@@ -54,7 +54,7 @@ buttons.forEach(button => {
         }
 
         else if(val === 'ADD' || val === 'SUB' || val === 'MUL' || val === 'DIV') {
-            if(currentOp && firstNum ==='') {
+            if(currentOp && firstNum !== '') {
                 secondNum = displayValue;
                 const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
                 display.textContent = roundResult(result);
@@ -69,7 +69,7 @@ buttons.forEach(button => {
         }
 
         else if (val === '=') {
-            if(currentOp = null || resetNext) return;
+            if(currentOp === null || resetNext) return;
 
             secondNum = displayValue;
             const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
@@ -80,14 +80,12 @@ buttons.forEach(button => {
         }
 
         else if(val === 'CLEAR') {
-            () => {
-                firstNum = '';
-                secondNum = '';
-                currentOp = null;
-                displayValue = '';
-                display.textContent = '0';
-                resetNext = false;
-            }
+            firstNum = '';
+            secondNum = '';
+            currentOp = null;
+            displayValue = '';
+            display.textContent = '0';
+            resetNext = false;
         }
 
         else if (val === '←') {
