@@ -51,7 +51,18 @@ buttons.forEach(button => {
         }
 
         else if(val === '+' || val === '-' || val === '*' || val === '/') {
-            
+            if(currentOp && firstNum ==='') {
+                secondNum = displayValue;
+                const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
+                display.textContent = result;
+
+                firstNum = result;
+            } else {
+                firstNum = displayValue;
+            }
+
+            currentOp = val;
+            resetNext = true;
         }
     });
 });
