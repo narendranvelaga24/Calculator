@@ -89,5 +89,11 @@ buttons.forEach(button => {
                 resetNext = false;
             }
         }
+
+        else if (val === '←') {
+            displayValue = displayValue.slice(0, -1);
+            display.textContent = displayValue || '0';
+        }
+          
     });
 });
