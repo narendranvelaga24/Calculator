@@ -13,7 +13,7 @@ function divide(a, b) {
 }
 
 
-let num1 = 3, num2 = 5, operator = '+';
+//let num1 = 3, num2 = 5, operator = '+';
 function operate(operator, a, b) {
     switch(operator) {
         case '+': return add(a, b);
@@ -23,7 +23,7 @@ function operate(operator, a, b) {
         default: return null;
     }
 }
-operate(operator, num1, num2);
+//operate(operator, num1, num2);
 
 
 const display = document.getElementById('display');
@@ -31,8 +31,8 @@ const buttons = document.querySelectorAll('.buttons button');
 
 let firstNum = '';
 let secondNum = '';
-let currentOp = '';
-let resetNext = '';
+let currentOp = null;
+let resetNext = false;
 let displayValue = '';
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -48,6 +48,10 @@ buttons.forEach(button => {
 
             displayValue += val;
             display.textContent = displayValue;
+        }
+
+        else if(val === '+' || val === '-' || val === '*' || val === '/') {
+            
         }
     });
 });
