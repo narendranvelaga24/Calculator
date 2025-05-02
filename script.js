@@ -29,11 +29,23 @@ operate(operator, num1, num2);
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.buttons button');
 
+let firstNum = '';
+let secondNum = '';
+let currentOp = '';
+let resetNext = '';
 let displayValue = '';
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const val = button.textContent;
+
         if(!isNaN(val) || val === '.') {
+            if(resetNext) {
+                displayValue = '';
+                resetNext = false;
+            }
+
+            if (val === '.' && displayValue.includes('.')) return;
+
             displayValue += val;
             display.textContent = displayValue;
         }
