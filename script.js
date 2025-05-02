@@ -16,10 +16,10 @@ function divide(a, b) {
 //let num1 = 3, num2 = 5, operator = '+';
 function operate(operator, a, b) {
     switch(operator) {
-        case '+': return add(a, b);
-        case '-': return subtract(a, b);
-        case '*': return multiply(a, b);
-        case '/': return divide(a, b);
+        case 'ADD': return add(a, b);
+        case 'SUB': return subtract(a, b);
+        case 'MUL': return multiply(a, b);
+        case 'DIV': return divide(a, b);
         default: return null;
     }
 }
@@ -50,7 +50,7 @@ buttons.forEach(button => {
             display.textContent = displayValue;
         }
 
-        else if(val === '+' || val === '-' || val === '*' || val === '/') {
+        else if(val === 'ADD' || val === 'SUB' || val === 'MUL' || val === 'DIV') {
             if(currentOp && firstNum ==='') {
                 secondNum = displayValue;
                 const result = operate(currentOp, parseFloat(firstNum), parseFloat(secondNum));
@@ -74,6 +74,17 @@ buttons.forEach(button => {
             firstNum = result;
             currentOp = null;
             resetNext = true;
+        }
+
+        else if(val === 'CLEAR') {
+            () => {
+                firstNum = '';
+                secondNum = '';
+                currentOp = null;
+                displayValue = '';
+                display.textContent = '0';
+                resetNext = false;
+            }
         }
     });
 });
